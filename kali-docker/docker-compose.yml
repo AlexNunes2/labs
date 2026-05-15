@@ -1,0 +1,23 @@
+services:
+  kali:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: kali-lab
+    hostname: kali-docker
+
+    tty: true
+    stdin_open: true
+
+    working_dir: /root/lab
+
+    volumes:
+      - C:/labs/docker-data/kali:/root/lab
+
+    networks:
+      - kali-net
+
+networks:
+  kali-net:
+    driver: bridge
